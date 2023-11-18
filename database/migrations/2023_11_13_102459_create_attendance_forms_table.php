@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('attendance_forms', function (Blueprint $table) {
+            $table->id();
+            $table->date('from')->nullable();
+            $table->date('to')->nullable();
+            $table->text('image')->nullable();
+            $table->text('employee_name')->nullable();
+            $table->text('punch_time')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('attendance_forms');
+    }
+};
